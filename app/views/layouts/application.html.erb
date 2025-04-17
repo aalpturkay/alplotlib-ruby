@@ -23,14 +23,8 @@
   </head>
 
   <body>
-    <nav>
-      <% if not authenticated?  %>
-        <%= link_to "Giriş Yap", new_session_path %>
-      <% end %>
-      
-      <%= button_to "Çıkış Yap", session_path, method: :delete if authenticated? %>
-    </nav>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <%= render "shared/navbar" %>
+    <main style="background-image: url('<%= asset_path("hero-bg.png") %>')" class="bg-cover bg-center h-screen">
       <%= yield %>
     </main>
   </body>

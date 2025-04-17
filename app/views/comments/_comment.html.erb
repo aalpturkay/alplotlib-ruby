@@ -1,0 +1,4 @@
+<div id="<% dom_id(comment) %>" class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+    <p class="mb-1"><%= comment.content %></p>
+    <p class="text-sm text-gray-500">– <%= comment.user.first_name %>, <%= comment.created_at.to_formatted_s(:short) %></p>
+</div>

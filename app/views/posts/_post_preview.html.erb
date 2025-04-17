@@ -1,0 +1,16 @@
+<a href="<%= post_path(post) %>" class="group relative overflow-hidden rounded-2xl shadow-lg">
+  <% if post.cover_image.attached? %>
+    <%= image_tag post.cover_image.variant(resize_to_limit: [800, 400]), alt: post.title, class: "h-80 w-full object-cover transition duration-300 group-hover:scale-105" %>
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80"
+         alt="Placeholder"
+         class="h-80 w-full object-cover transition duration-300 group-hover:scale-105" />
+  <% end %>
+
+  <div class="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+    <h2 class="text-xl font-bold text-white"><%= post.title %></h2>
+    <p class="text-sm text-gray-300">
+      <%= truncate(post.body.to_plain_text, length: 100) %>
+    </p>
+  </div>
+</a>

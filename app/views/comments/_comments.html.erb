@@ -1,0 +1,10 @@
+<h2 class="mb-4 text-2xl font-semibold">Yorumlar</h2>
+
+<div id="comments" class="mb-8 space-y-4">
+    <% if post.comments.any? %>
+        <%= render post.comments %>    
+    <% else %>
+        <p class="text-center my-10">Henüz yorum yapılmamış, hadi ilk sen yap!</p>
+    <% end %>
+    <%= render "comments/new", post: @post %>
+</div>

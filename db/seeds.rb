@@ -8,4 +8,4 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create! email_address: "aykutalpturkay@icloud.com", password: "alp"
+User.create! email_address: "aykutalpturkay@icloud.com", password: "alp", first_name: "Aykut Alp", last_name: "Turkay"

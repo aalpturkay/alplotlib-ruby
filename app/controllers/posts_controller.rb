@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
     @post.published_at = Time.current
     @post.status = :published
-
+    @post.user = Current.user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Post was successfully created." }
@@ -65,10 +65,11 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params.expect(:id))
+      # @post = Post.find_by!(slug: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :body, :published_at, :status ])
+      params.expect(post: [ :title, :body, :published_at, :status, :cover_image ])
     end
 end

@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: "Comment was successfully added."
     else
-      redirect_to @post, alert: "Failed to add comment."
+      redirect_to @post, alert: "Failed to add comment. #{@comment.errors.full_messages.join(", ")}"
     end
   end
 

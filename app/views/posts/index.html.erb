@@ -1,23 +1,14 @@
 <% content_for :title, "Posts" %>
-<div class="w-full min-h-screen bg-[#0f1120] text-white">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
+<div class="w-full min-h-screen bg-white dark:bg-[#242525]">
   <div class="flex justify-between items-center">
-    
-    <% if authenticated? %>
-      <%= link_to "New post", new_post_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
-    <% end %>
-    
+        
   </div>
 
   <div class="mx-auto max-w-4xl px-4 py-16 text-center">
-    <h1 class="mb-4 text-4xl font-extrabold md:text-5xl">Alplotlib'den Hikayeler</h1>
-    <p class="mx-auto max-w-xl text-lg text-gray-400">Burası öğrendiklerimi paylaştığım bir alan, oku, beğen, yorum yap ve hatta istediğin yazıları bana öner</p>
+    <h1 class="mb-4 text-4xl font-extrabold md:text-5xl dark:text-white">Posts</h1>
   </div>
 
-  <div id="posts" class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 pb-16 md:grid-cols-2 lg:grid-cols-3">
+  <div id="posts" class="mx-auto max-w-6xl space-y-10 px-4 py-12">
     <% if @posts.any? %>
       <% @posts.each do |post| %>
         <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0">

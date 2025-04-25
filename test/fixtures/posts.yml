@@ -5,9 +5,11 @@ one:
   body: MyText
   published_at: 2025-04-09 20:19:15
   status: 1
+  user: one
 
 two:
   title: MyString
   body: MyText
   published_at: 2025-04-09 20:19:15
   status: 1
+  user: one

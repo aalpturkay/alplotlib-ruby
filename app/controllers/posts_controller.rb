@@ -1,10 +1,20 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   allow_unauthenticated_access only: %i[ index show ]
+  before_action :authorize_post!, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    if params[:user_id]
+      begin
+        @user = User.find(params[:user_id])
+        @posts = @user.posts
+      rescue ActiveRecord::RecordNotFound
+        redirect_to posts_path
+      end
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1 or /posts/1.json
@@ -70,6 +80,10 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :body, :published_at, :status, :cover_image ])
+      params.expect(post: [ :title, :body, :published_at, :status, :cover_image, :category_id ])
+    end
+
+    def authorize_post!
+      redirect_to posts_path, alert: "Yetkin yok." unless @post.user == Current.user
     end
 end

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get "home/index"
   resource :session
   resources :passwords, param: :token
+  resources :users, only: [ :show ] do
+    resources :posts, only: [ :index ]
+  end
+
   resources :posts do
     resources :comments
   end

@@ -1,17 +1,23 @@
-<div id="<%= dom_id post %>" class="w-full sm:w-auto my-5 space-y-5">
-  <h1 class="mb-3 text-4xl font-bold"><%= post.title %></h1>
+<main class="pt-8 pb-16 lg:pt-16 lg:pb-24  antialiased">
+  <div class="flex justify-center px-4 mx-auto max-w-screen-xl">
+    <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+      
+      <header class="mb-4 lg:mb-6 not-format text-center">
+        <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+          <%= post.title %>
+        </h1>
+        
+        <div class="flex flex-col items-center text-sm text-gray-500 dark:text-gray-400">
+          <span class="font-semibold text-gray-700 dark:text-white"><%= post.user.first_name %></span>
+          <time class="text-sm" datetime="<%= post.published_at %>">
+            <%= post.published_at.to_formatted_s(:short) %>
+          </time>
+        </div>
+      </header>
 
-  <div class="mb-8 text-sm text-gray-500">
-    <span class="font-medium text-gray-700"><%= post.user.first_name %></span> •
-    <time datetime="2025-04-12"><%= post.published_at.to_formatted_s(:short) %></time>
+      <div class="mb-12 space-y-5 text-lg leading-relaxed text-gray-800 dark:text-gray-300">
+        <%= post.body %>
+      </div>
+    </article>
   </div>
-
-  <div class="mb-12 space-y-5 text-lg leading-relaxed">
-    <%= post.body %>
-  </div>
-
-  <div>
-    <strong class="block font-medium mb-1">Durum:</strong>
-    <%= post.status.humanize %>
-  </div>
-</div>
+</main>

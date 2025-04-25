@@ -8,4 +8,34 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create! email_address: "aykutalpturkay@icloud.com", password: "alp", first_name: "Aykut Alp", last_name: "Turkay"
+User.find_or_create_by!(email_address: "aykutalpturkay@icloud.com") do |user|
+  user.password = "alp"
+  user.first_name = "Aykut Alp"
+  user.last_name = "Turkay"
+end
+
+User.find_or_create_by!(email_address: "elcinzorlu@alplotlib.com") do |user|
+  user.password = "elçin"
+  user.first_name = "Elçin"
+  user.last_name = "Zorlu"
+end
+
+categories = [
+  "Programming",
+  "Tutorial",
+  "Productivity",
+  "Design",
+  "Marketing",
+  "Startup",
+  "Career",
+  "Ruby on Rails",
+  "JavaScript",
+  "DevOps"
+]
+
+categories.each do |name|
+  Category.find_or_create_by!(name: name)
+end
+
+puts "✅ Users seeded: #{User.count}"
+puts "✅ Categories seeded: #{Category.count}"

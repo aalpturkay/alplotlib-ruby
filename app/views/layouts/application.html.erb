@@ -23,8 +23,28 @@
   </head>
 
   <body>
+    <% if alert.present? %>
+      <div 
+        data-controller="alert"
+        data-alert-target="box"
+        class="fixed top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow-lg transition-all duration-300 transform z-50 animate-slide-down"
+      >
+        <%= alert %>
+      </div>
+    <% end %>
+    
+    <% if notice.present? %>
+       <div 
+        data-controller="alert"
+        data-alert-target="box"
+        class="fixed top-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-white font-medium px-4 py-2 rounded-md shadow-lg transition-all duration-300 transform z-50 animate-slide-down"
+      >
+        <%= notice %>
+      </div>
+    <% end %>
+    
     <%= render "shared/navbar" %>
-    <main style="background-image: url('<%= asset_path("hero-bg.png") %>')" class="bg-cover bg-center h-screen">
+    <main class="">
       <%= yield %>
     </main>
   </body>

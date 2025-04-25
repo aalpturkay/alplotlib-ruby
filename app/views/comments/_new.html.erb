@@ -3,6 +3,6 @@
 <%= form_with model: [ post, Comment.new ], html: { class: "" } do |form| %>
     <label class="mb-1 block text-sm font-medium" for="comment">Yorumunuz</label>
 
-    <%= form.text_area :content, size: "20x5", class: "w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none mb-8" %><br>
+    <%= form.text_area :content, size: "20x5", class: "rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none mb-8" %><br>
     <%= form.submit "Yorumu Gönder", class: "rounded-lg bg-blue-500 px-5 py-2 font-medium text-white transition duration-200 hover:bg-blue-600 cursor-pointer" %>
 <% end %>

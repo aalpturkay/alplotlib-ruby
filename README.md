@@ -1,24 +1,44 @@
-# README
+# 📚 Alplotlib
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Alplotlib** is a modern, fast, and accessible blogging platform designed for individuals and communities.  
+Built with Ruby on Rails 8, Turbo, Stimulus, and TailwindCSS.
 
-Things you may want to cover:
+## ✨ Features
 
-* Ruby version
+- 🚀 Built with **Rails 8** (latest version)
+- ⚡️ **Turbo** (Hotwire) for fast, seamless navigation
+- 🎯 **StimulusJS** for interactive frontend components
+- 🎨 **TailwindCSS** with **Dark Mode** support
+- 🖼️ Cover image upload with **ActiveStorage**
+- ✍️ Rich text editor using **ActionText** (Trix)
+- 🔒 Authentication system (Rails 8 built-in auth)
+- 👤 Users can manage only their own posts
+- 📄 SEO-friendly and fully responsive design
+- ⚡️ Focus on performance and accessibility
 
-* System dependencies
+## 📷 Screenshots
 
-* Configuration
+Landing
 
-* Database creation
+![image](https://github.com/user-attachments/assets/75fefd91-8444-4443-b302-d0cbd665bb08)
 
-* Database initialization
+## 🔧 Installation
 
-* How to run the test suite
+Clone the repository and set up the project locally:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+# Clone the repository
+git clone https://github.com/aalpturkay/alplotlib-ruby.git
+cd alplotlib
 
-* Deployment instructions
+# Install dependencies
+bundle install
 
-* ...
+# Set up the database
+rails db:create db:migrate db:seed
+
+# Start the Rails server
+bin/dev
+# or
+rails server
+```

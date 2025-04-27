@@ -9,9 +9,16 @@
     <div>
       <div class="mb-3 flex items-center justify-between text-gray-500">
         <span class="bg-primary-100 text-primary-800 dark:bg-primary-200 dark:text-primary-800 inline-flex items-center rounded px-2.5 py-0.5 text-xs font-medium"> <%= post.category.name %> </span>
-        <span class="text-sm" title="<%= post.created_at.strftime('%B %d, %Y at %H:%M') %>">
-          <%= time_ago_in_words(post.created_at) %> ago
-        </span>
+        <div class="flex gap-2 items-center justify-between">
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            <%= pluralize(post.views_count, 'view') %> -
+          </p>
+          
+          <span class="text-sm" title="<%= post.created_at.strftime('%B %d, %Y at %H:%M') %>">
+            <%= time_ago_in_words(post.created_at) %> ago
+          </span>
+        </div>
+        
       </div>
       <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         <a href="<%= post_path(post) %>"><%= post.title %></a>

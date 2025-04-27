@@ -9,6 +9,8 @@ class Post < ApplicationRecord
 
   validate :only_images_allowed_in_body
 
+  attribute :views_count, :integer, default: 0
+
   private
     def only_images_allowed_in_body
       return unless body.body.attachables.any?

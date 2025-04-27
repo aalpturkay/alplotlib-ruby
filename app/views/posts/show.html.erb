@@ -2,7 +2,11 @@
 
 <% content_for :title, "alplotlib | "+@post.title %>
 
-<div class="w-full bg-white dark:bg-[#242525]">  
+<div class="w-full bg-white dark:bg-[#242525]"> 
+
+  <p class="text-sm text-gray-500 dark:text-gray-400">
+    <%= pluralize(@post.views_count, 'view') %>
+  </p>
 
   <div class="flex gap-2 items-center justify-center pt-3">
     <% if authenticated? && @post.user == Current.user %>  

@@ -19,6 +19,13 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    cache_key = "post_#{@post.id}_viewer_#{session.id}"
+
+    unless Rails.cache.exist?(cache_key)
+      @post.increment!(:views_count, 1)
+      Rails.cache.write(cache_key, true, expires_in: 1.minutes)
+    end
   end
 
   # GET /posts/new
